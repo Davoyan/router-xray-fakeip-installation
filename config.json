@@ -1,5 +1,7 @@
 {
-  "log": { "loglevel": "info" },
+  "log": {
+    "loglevel": "info"
+  },
   "inbounds": [
     {
       "tag": "all-in",
@@ -10,17 +12,30 @@
         "network": "tcp,udp",
         "followRedirect": true
       },
-      "streamSettings": {"sockopt": { "tproxy": "tproxy" }},
+      "streamSettings": {
+        "sockopt": {
+          "tproxy": "tproxy"
+        }
+      },
       "sniffing": {
         "enabled": true,
-        "destOverride": ["fakedns", "http", "tls", "quic"]
+        "destOverride": [
+          "fakedns",
+          "http",
+          "tls",
+          "quic"
+        ]
       }
-    },{
+    },
+    {
       "tag": "dns-in",
       "listen": "127.0.0.1",
       "port": 5353,
       "protocol": "dokodemo-door",
-      "settings": {"address": "127.0.0.1", "network": "tcp,udp"}
+      "settings": {
+        "address": "127.0.0.1",
+        "network": "tcp,udp"
+      }
     }
   ],
   "outbounds": [
@@ -57,30 +72,60 @@
     {
       "tag": "direct",
       "protocol": "freedom",
-      "settings": { "domainStrategy": "ForceIPv4" }
+      "settings": {
+        "domainStrategy": "ForceIPv4"
+      }
     },
     {
       "tag": "dns-out",
       "protocol": "dns"
-    }],
+    }
+  ],
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
-      {"ip": ["1.1.1.1", "1.0.0.1", "9.9.9.9", "9.9.9.9", "149.112.112.112", "77.88.8.1"], "outboundTag": "direct"},
-      {"inboundTag": ["dns-in"], "outboundTag": "dns-out"},
-      {"inboundTag": ["all-in"], "balancerTag": "balancer-main"}
+      {
+        "ip": [
+          "1.1.1.1",
+          "1.0.0.1",
+          "9.9.9.9",
+          "9.9.9.9",
+          "149.112.112.112",
+          "77.88.8.8",
+          "77.88.8.1"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "inboundTag": [
+          "dns-in"
+        ],
+        "outboundTag": "dns-out"
+      },
+      {
+        "inboundTag": [
+          "all-in"
+        ],
+        "balancerTag": "balancer-main"
+      }
     ],
-    "balancers" : [
+    "balancers": [
       {
         "tag": "balancer-main",
-        "selector": [ "proxy" ],
+        "selector": [
+          "proxy"
+        ],
         "fallbackTag": "direct",
-        "strategy": { "type": "leastPing" }
+        "strategy": {
+          "type": "leastPing"
+        }
       }
     ]
   },
   "observatory": {
-    "subjectSelector": [ "proxy" ],
+    "subjectSelector": [
+      "proxy"
+    ],
     "probeUrl": "http://www.google.com/generate_204",
     "probeInterval": "1m",
     "enableConcurrency": true
@@ -101,19 +146,25 @@
       ]
     },
     "servers": [
-  	  {
+      {
         "address": "https://cloudflare-dns.com/dns-query"
       },
       {
         "address": "https://dns.quad9.net/dns-query"
       },
-  	  {
-  		  "address": "https://common.dot.dns.yandex.net/dns-query",
-        "domains": ["ext:runetfreedom.dat:ru-available-only-inside", "ext:runetfreedom.dat:category-ru"]
-  	  },
+      {
+        "address": "https://common.dot.dns.yandex.net/dns-query",
+        "domains": [
+          "ext:runetfreedom.dat:ru-available-only-inside",
+          "ext:runetfreedom.dat:category-ru"
+        ]
+      },
       {
         "address": "fakedns",
-        "domains": ["ext:runetfreedom.dat:ru-blocked", "2ip.io"]
+        "domains": [
+          "ext:runetfreedom.dat:ru-blocked",
+          "2ip.io"
+        ]
       }
     ],
     "queryStrategy": "UseIPv4"
@@ -123,4 +174,3 @@
     "poolSize": 65535
   }
 }
-
