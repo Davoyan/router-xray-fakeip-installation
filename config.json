@@ -1,0 +1,127 @@
+{
+  "log": { "loglevel": "info" },
+  "inbounds": [
+    {
+      "tag": "all-in",
+      "listen": "127.0.0.1",
+      "port": 12701,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "network": "tcp,udp",
+        "followRedirect": true
+      },
+      "streamSettings": {"sockopt": { "tproxy": "tproxy" }},
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["fakedns", "http", "tls", "quic"]
+      }
+    },{
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "port": 5353,
+      "protocol": "dokodemo-door",
+      "settings": {"address": "127.0.0.1", "network": "tcp,udp"}
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "example.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "0000000-000000000-00000000-0000000-00000000",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "example.com",
+          "fingerprint": "chrome",
+          "publicKey": "000000000000000000000000",
+          "shortId": "0000000000000000",
+          "spiderX": ""
+        }
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": { "domainStrategy": "ForceIPv4" }
+    },
+    {
+      "tag": "dns-out",
+      "protocol": "dns"
+    }],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+	    {"ip": ["1.1.1.1", "1.0.0.1", "9.9.9.9", "9.9.9.9", "149.112.112.112", "77.88.8.1"], "outboundTag": "direct"},
+      {"network": "udp", "port": 123, "outboundTag": "direct"},
+      {"inboundTag": ["dns-in"], "outboundTag": "dns-out"},
+      {"inboundTag": ["all-in"], "balancerTag": "balancer-main"}
+    ],
+    "balancers" : [
+      {
+        "tag": "balancer-main",
+        "selector": [ "proxy" ],
+        "fallbackTag": "direct",
+        "strategy": { "type": "leastPing" }
+      }
+    ]
+  },
+  "observatory": {
+    "subjectSelector": [ "proxy" ],
+    "probeUrl": "http://www.google.com/generate_204",
+    "probeInterval": "1m",
+    "enableConcurrency": true
+  },
+  "dns": {
+    "hosts": {
+      "cloudflare-dns.com": [
+        "1.1.1.1",
+        "1.0.0.1"
+      ],
+      "dns.quad9.net": [
+        "9.9.9.9",
+        "149.112.112.112"
+      ],
+      "common.dot.dns.yandex.net": [
+        "77.88.8.8",
+        "77.88.8.1"
+      ]
+    },
+    "servers": [
+  	  {
+        "address": "https://cloudflare-dns.com/dns-query"
+      },
+      {
+        "address": "https://dns.quad9.net/dns-query"
+      },
+  	  {
+  		  "address": "https://common.dot.dns.yandex.net/dns-query",
+        "domains": ["ext:runetfreedom.dat:ru-available-only-inside", "ext:runetfreedom.dat:category-ru"]
+  	  },
+      {
+        "address": "fakedns",
+        "domains": ["ext:runetfreedom.dat:ru-blocked", "2ip.io"]
+      }
+    ],
+    "queryStrategy": "UseIPv4"
+  },
+  "fakedns": {
+    "ipPool": "198.18.0.0/15",
+    "poolSize": 65535
+  }
+}
+
