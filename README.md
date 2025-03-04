@@ -2,6 +2,7 @@
 
 Скрипт для установки xray на роутер с OpenWrt и реализация tproxy с роутингом по fakeip.
 
+---
 Если кто воспользуется полным комплектом, рекомендую в данном порядке:
 
 1. Установка ssh, sftp и отключение dropbear (не обязательно) 
@@ -18,3 +19,9 @@ sh <(wget -O -https://github.com/Davoyan/router-xray-fakeip-installation/blob/ma
 ```
 sh <(wget -O -https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/install.sh)
 ```
+
+4. Редактируем конфигурационный файл по пути /etc/xray/config.json и вписываем в outbound свои данные
+
+---
+> [!TIP]
+> На клиентах роутера в качестве DNS должен быть указан IP роутера
