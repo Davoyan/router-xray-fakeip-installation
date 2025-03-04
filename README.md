@@ -1,6 +1,6 @@
 # XRAY (FAKE IP + TPROXY), OpenWRT
 
-Скрипт для установки xray на роутер с OpenWrt и реализация tproxy с роутингом по fakeip. + списки [Runetfreedom](https://github.com/runetfreedom/) 
+Скрипт для установки xray на роутер с OpenWrt и реализация tproxy с роутингом по fakeip. + списки [Runetfreedom](https://github.com/runetfreedom/) + discord голосовые каналы
 
 ---
 Если кто воспользуется полным комплектом, рекомендую в данном порядке:
