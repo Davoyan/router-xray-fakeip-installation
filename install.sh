@@ -99,7 +99,7 @@ uci add firewall.@rule[-1].dest_ip='35.192.0.0/12'
 uci add firewall.@rule[-1].dest_ip='35.208.0.0/12'
 uci add firewall.@rule[-1].dest_ip='5.200.14.128/25'
 uci add firewall.@rule[-1].dest_ip='66.22.192.0/18'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci commit firewall
 
