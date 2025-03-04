@@ -66,8 +66,7 @@
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
-	    {"ip": ["1.1.1.1", "1.0.0.1", "9.9.9.9", "9.9.9.9", "149.112.112.112", "77.88.8.1"], "outboundTag": "direct"},
-      {"network": "udp", "port": 123, "outboundTag": "direct"},
+      {"ip": ["1.1.1.1", "1.0.0.1", "9.9.9.9", "9.9.9.9", "149.112.112.112", "77.88.8.1"], "outboundTag": "direct"},
       {"inboundTag": ["dns-in"], "outboundTag": "dns-out"},
       {"inboundTag": ["all-in"], "balancerTag": "balancer-main"}
     ],
