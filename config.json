@@ -49,7 +49,7 @@
             "port": 443,
             "users": [
               {
-                "id": "0000000-000000000-00000000-0000000-00000000",
+                "id": "000000000-0000-0000-0000-000000000000",
                 "encryption": "none",
                 "flow": "xtls-rprx-vision"
               }
@@ -63,7 +63,7 @@
         "realitySettings": {
           "serverName": "example.com",
           "fingerprint": "chrome",
-          "publicKey": "000000000000000000000000",
+          "publicKey": "000000000000000000000000000000000000000000",
           "shortId": "0000000000000000",
           "spiderX": ""
         }
@@ -161,7 +161,6 @@
       {
         "address": "https://common.dot.dns.yandex.net/dns-query",
         "domains": [
-          "ext:runetfreedom.dat:ru-available-only-inside",
           "ext:runetfreedom.dat:category-ru"
         ]
       }
