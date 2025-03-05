@@ -125,7 +125,7 @@
     "subjectSelector": [
       "proxy"
     ],
-    "probeUrl": "http://www.google.com/generate_204",
+    "probeUrl": "https://www.google.com/generate_204",
     "probeInterval": "1m",
     "enableConcurrency": true
   },
