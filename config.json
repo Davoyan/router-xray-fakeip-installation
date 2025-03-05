@@ -161,7 +161,7 @@
       {
         "address": "fakedns",
         "domains": [
-          "ext:runetfreedom.dat:ru-blocked",
+          "ext:runetfreedom.dat:ru-blocked-all",
           "2ip.io"
         ]
       }
