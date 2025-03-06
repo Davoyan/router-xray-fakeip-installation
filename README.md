@@ -10,17 +10,17 @@
 
 1. Установка ssh, sftp и отключение dropbear (не обязательно) 
 ```
-sh <(wget -O -https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/install-ssh-sftp-and-disable-dropbear.sh)
+sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/install-ssh-sftp-and-disable-dropbear.sh)
 ```
 
 2. Полное отключение ipv6 в роутере 
 ```
-sh <(wget -O -https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/disable-ipv6-full.sh)
+sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/disable-ipv6-full.sh)
 ```
 
 3. Установка XRAY и kmod-nft-tproxy. Конфигурация cron на автоматическое обновление списков. Конфигурация network, firewall, nftables для работы tproxy. Конфигурация dnsmasq для работы fakedns
 ```
-sh <(wget -O -https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/install.sh)
+sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/blob/main/install.sh)
 ```
 
 4. Редактируем конфигурационный файл по пути /etc/xray/config.json и вписываем в outbound свои данные
