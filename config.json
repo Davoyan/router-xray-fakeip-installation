@@ -85,10 +85,14 @@
     "domainStrategy": "IPOnDemand",
     "rules": [
       {
-        "inboundTag": [
-          "dns-config-out"
+        "ip": [
+          "1.1.1.1",
+          "1.0.0.1",
+          "9.9.9.9",
+          "149.112.112.112",
+          "77.88.8.8",
+          "77.88.8.1"
         ],
-        "type": "field",
         "outboundTag": "direct"
       },
       {
@@ -126,49 +130,41 @@
     "enableConcurrency": true
   },
   "dns": {
-    "hosts": {
-      "cloudflare-dns.com": [
-        "1.1.1.1",
-        "1.0.0.1"
-      ],
-      "dns.quad9.net": [
-        "9.9.9.9",
-        "149.112.112.112"
-      ],
-      "common.dot.dns.yandex.net": [
-        "77.88.8.8",
-        "77.88.8.1"
-      ]
-    },
     "servers": [
       {
-        "address": "https://cloudflare-dns.com/dns-query"
+        "address": "https://1.1.1.1/dns-query"
       },
       {
-        "address": "https://dns.quad9.net/dns-query"
+        "address": "https://1.0.0.1/dns-query"
       },
       {
-        "address": "fakedns",
-        "domains": [
-          "ext:runetfreedom.dat:ru-blocked-all",
-          "2ip.io"
-        ]
-      },    
+        "address": "https://9.9.9.9/dns-query"
+      },
       {
-        "address": "https://common.dot.dns.yandex.net/dns-query",
+        "address": "https://149.112.112.112/dns-query"
+      },
+      {
+        "address": "https://77.88.8.8/dns-query",
         "domains": [
+          "ext:runetfreedom.dat:ru-available-only-inside",
           "ext:runetfreedom.dat:category-ru"
         ]
       },
       {
-        "address": "77.88.8.8"
+        "address": "77.88.8.1",
         "domains": [
           "ext:runetfreedom.dat:category-ntp"
         ]
+      },
+      {
+        "address": "fakedns",
+        "domains": [
+          "ext:runetfreedom.dat:ru-blocked",
+          "2ip.io"
+        ]
       }
     ],
-    "queryStrategy": "UseIPv4",
-    "tag": "dns-config-out"
+    "queryStrategy": "UseIPv4"
   },
   "fakedns": {
     "ipPool": "198.18.0.0/15",
