@@ -37,6 +37,10 @@ uci -q delete dhcp.@dnsmasq[0].server
 uci add_list dhcp.@dnsmasq[0].server="127.0.0.1#5353"
 uci commit dhcp
 
+RC_LOCAL="/etc/rc.local"
+grep -q "ethtool -K eth0 tso off" "$RC_LOCAL" || sed -i "/^exit 0/i ethtool -K eth0 tso off" "$RC_LOCAL"
+grep -q "(sleep 10 && service xray restart)" "$RC_LOCAL" || sed -i "/^exit 0/i (sleep 10 && service xray restart)" "$RC_LOCAL"
+grep -q "(sh && /etc/xray/update_domains.sh) &" "$RC_LOCAL" || sed -i "/^exit 0/i (sh && /etc/xray/update_domains.sh) &" "$RC_LOCAL"
 
 printf "\033[32;1mConfigure network\033[0m\n"
 rule_id=$(uci show network | grep -E '@rule.*name=.mark0x1.' | awk -F '[][{}]' '{print $2}' | head -n 1)
