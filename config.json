@@ -85,14 +85,10 @@
     "domainStrategy": "IPOnDemand",
     "rules": [
       {
-        "ip": [
-          "1.1.1.1",
-          "1.0.0.1",
-          "9.9.9.9",
-          "149.112.112.112",
-          "77.88.8.8",
-          "77.88.8.1"
+        "inboundTag": [
+          "dns-config-out"
         ],
+        "type": "field",
         "outboundTag": "direct"
       },
       {
@@ -171,7 +167,8 @@
         ]
       }
     ],
-    "queryStrategy": "UseIPv4"
+    "queryStrategy": "UseIPv4",
+    "tag": "dns-config-out"
   },
   "fakedns": {
     "ipPool": "198.18.0.0/15",
