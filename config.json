@@ -159,6 +159,12 @@
         ]
       },
       {
+        "address": "77.88.8.8"
+        "domains": [
+          "ext:runetfreedom.dat:category-ntp"
+        ]
+      },
+      {
         "address": "https://common.dot.dns.yandex.net/dns-query",
         "domains": [
           "ext:runetfreedom.dat:category-ru"
