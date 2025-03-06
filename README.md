@@ -18,8 +18,9 @@ sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/ma
 sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/main/disable-ipv6-full.sh)
 ```
 
+
 > [!TIP]
-> Перед выполнением данного пункта подготовьте данные для outbound xray, потому что интернет до их заполнения будет недоступен
+> Перед выполнением пункта 3 подготовьте данные для outbound xray, потому что интернет до их заполнения будет недоступен
 
 3. Установка XRAY и kmod-nft-tproxy. Конфигурация cron на автоматическое обновление списков. Конфигурация network, firewall, nftables для работы tproxy. Конфигурация dnsmasq для работы fakedns
 ```
