@@ -120,4 +120,3 @@ echo "}" >> /etc/nftables.d/30-xray-tproxy.nft
 
 service xray restart && service dnsmasq restart && service network restart && service firewall restart
 
-
