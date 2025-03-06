@@ -4,7 +4,7 @@ printf "\033[32;1mInstalling packeges\033[0m\n"
 opkg update && opkg install curl kmod-nft-tproxy xray-core 
 
 printf "\033[32;1mDownloading config.json\033[0m\n"
-curl -Lo /etc/xray/config.json https://raw.githubusercontent.com/Davoyan/router-xray-fakeip-installation/main/install.sh
+curl -Lo /etc/xray/config.json https://raw.githubusercontent.com/Davoyan/router-xray-fakeip-installation/main/config.json
 
 printf "\033[32;1mEnabling xray service\033[0m\n"
 uci set xray.enabled.enabled='1'
