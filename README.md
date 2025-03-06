@@ -25,6 +25,11 @@ sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/ma
 
 4. Редактируем конфигурационный файл по пути /etc/xray/config.json и вписываем в outbound свои данные
 
+5. Перезагружаем роутер или выполняем
+```
+service xray restart && service dnsmasq restart && service network restart && service firewall restart
+```
+
 ---
 > [!TIP]
 > На клиентах роутера в качестве DNS должен быть указан IP роутера
