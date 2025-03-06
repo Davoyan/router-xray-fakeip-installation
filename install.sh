@@ -30,16 +30,6 @@ else
     /etc/init.d/cron restart
 fi
 
-# Надо попробовать на тех, у кого beeline
-#printf "\033[32;1mConfiguring dnsmasq service\033[0m\n"
-#dns=$(grep -m1 '^nameserver' /tmp/resolv.conf.auto | awk '{print $2}')
-#uci -q delete dhcp.@dnsmasq[0].resolvfile
-#uci set dhcp.@dnsmasq[0].noresolv="1"
-#uci -q delete dhcp.@dnsmasq[0].server
-#uci add_list dhcp.@dnsmasq[0].server="/tp.internet.beeline.ru/#${dns}"
-#uci add_list dhcp.@dnsmasq[0].server="127.0.0.1#5353"
-#uci commit dhcp
-
 printf "\033[32;1mConfiguring dnsmasq service\033[0m\n"
 uci -q delete dhcp.@dnsmasq[0].resolvfile
 uci set dhcp.@dnsmasq[0].noresolv="1"
