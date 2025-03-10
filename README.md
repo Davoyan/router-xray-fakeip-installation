@@ -1,9 +1,9 @@
 # XRAY (FAKE IP + TPROXY), OpenWRT
 
-Скрипт для установки xray на роутер с OpenWrt и реализация tproxy с роутингом по fakeip. + списки [Runetfreedom](https://github.com/runetfreedom/) + discord голосовые каналы.
+Скрипт для установки xray на роутер с OpenWrt и реализация tproxy с роутингом по fakeip. + списки доменов [Re:filter](https://github.com/1andrevich/Re-filter-lists) + discord голосовые каналы.
 
 
-Внимание! geosite.dat из скрипта весит около 34мб. Будьте уверены в наличии свободного места на роутере, чтобы хватило под xray + geosite.dat. (На ax3000t хватит)
+Внимание! xray + geosite.dat из скрипта весит около 16мб. Будьте уверены в наличии свободного места на роутере. (На ax3000t хватит)
 
 ---
 Если кто воспользуется полным комплектом, рекомендую в данном порядке:
