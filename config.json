@@ -89,9 +89,7 @@
           "1.1.1.1",
           "1.0.0.1",
           "9.9.9.9",
-          "149.112.112.112",
-          "77.88.8.8",
-          "77.88.8.1"
+          "149.112.112.112"
         ],
         "outboundTag": "direct"
       },
@@ -144,22 +142,9 @@
         "address": "https://149.112.112.112/dns-query"
       },
       {
-        "address": "https://77.88.8.8/dns-query",
-        "domains": [
-          "ext:runetfreedom.dat:ru-available-only-inside",
-          "ext:runetfreedom.dat:category-ru"
-        ]
-      },
-      {
-        "address": "77.88.8.1",
-        "domains": [
-          "ext:runetfreedom.dat:category-ntp"
-        ]
-      },
-      {
         "address": "fakedns",
         "domains": [
-          "ext:runetfreedom.dat:ru-blocked",
+          "ext:refilter.dat:refilter",
           "2ip.io"
         ]
       }
