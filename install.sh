@@ -95,7 +95,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='138.128.136.0/21'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -107,7 +107,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='162.158.0.0/15'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -119,7 +119,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='172.64.0.0/13'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -131,7 +131,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='34.0.0.0/15'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -143,7 +143,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='34.2.0.0/15'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -155,7 +155,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='35.192.0.0/12'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -167,7 +167,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='35.208.0.0/12'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -179,7 +179,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='5.200.14.128/25'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
@@ -191,7 +191,7 @@ uci set firewall.@rule[-1].target='MARK'
 uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 uci set firewall.@rule[-1].dest_ip='66.22.192.0/18'
-uci set firewall.@rule[-1].dest_port='50000-65535'
+uci set firewall.@rule[-1].dest_port='50000-51000'
 
 uci commit firewall
 
