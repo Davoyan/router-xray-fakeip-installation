@@ -14,7 +14,7 @@ service xray enable
 printf "\033[32;1mConfiguring update_domains script\033[0m\n"
 echo "#!/bin/sh" > /etc/xray/update_domains.sh
 echo "set -e" >> /etc/xray/update_domains.sh
-echo "curl -Lo /usr/share/xray/runetfreedom.dat https://github.com/runetfreedom/russia-blocked-geosite/releases/latest/download/geosite.dat" >> /etc/xray/update_domains.sh
+echo "curl -Lo /usr/share/xray/refilter.dat https://github.com/1andrevich/Re-filter-lists/releases/latest/download/geosite.dat" >> /etc/xray/update_domains.sh
 echo "service xray restart" >> /etc/xray/update_domains.sh
 chmod +x /etc/xray/update_domains.sh
 
