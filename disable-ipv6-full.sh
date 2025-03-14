@@ -9,8 +9,8 @@ uci set network.lan.delegate="0"
 
 uci -q delete network.globals.ula_prefix
 
-/etc/init.d/odhcpd disable
 /etc/init.d/odhcpd stop
+/etc/init.d/odhcpd disable
 
 sysctl -w net.ipv6.conf.all.disable_ipv6=1
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
