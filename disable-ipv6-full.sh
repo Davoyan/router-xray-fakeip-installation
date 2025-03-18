@@ -20,5 +20,6 @@ sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 
 uci commit
+sed -i '/::1/d' /etc/resolv.conf
 service dnsmasq restart
 printf "\033[32;1mDont forget to reboot\033[0m\n"
