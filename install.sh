@@ -86,7 +86,7 @@ uci set firewall.@rule[-1].set_mark='0x1'
 uci set firewall.@rule[-1].family='ipv4'
 
 uci add firewall rule
-uci set firewall.@rule[-1].name='Discord Marking'
+uci set firewall.@rule[-1].name='Discord Voice via proxy'
 uci set firewall.@rule[-1].src='lan'
 uci set firewall.@rule[-1].dest='*'
 uci set firewall.@rule[-1].proto='udp'
