@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 CONF="/etc/config/dhcp"
 STATE_FILE="/tmp/xray_state"
