@@ -63,6 +63,14 @@ rule_id2=$(uci show firewall | grep -E '@rule.*name=.Fake IP via proxy.' | awk -
 if [ ! -z "$rule_id2" ]; then
     while uci -q delete firewall.@rule[$rule_id2]; do :; done
 fi
+rule_id3=$(uci show firewall | grep -E '@rule.*name=.Block UDP 443.' | awk -F '[][{}]' '{print $2}' | head -n 1)
+if [ ! -z "$rule_id3" ]; then
+    while uci -q delete firewall.@rule[$rule_id3]; do :; done
+fi
+rule_id4=$(uci show firewall | grep -E '@rule.*name=.Discord Voice via proxy.' | awk -F '[][{}]' '{print $2}' | head -n 1)
+if [ ! -z "$rule_id4" ]; then
+    while uci -q delete firewall.@rule[$rule_id4]; do :; done
+fi
 
 uci add firewall rule
 uci set firewall.@rule[-1].name='Block UDP 443'
@@ -70,8 +78,7 @@ uci set firewall.@rule[-1].src='lan'
 uci set firewall.@rule[-1].dest='*'
 uci set firewall.@rule[-1].proto='udp'
 uci set firewall.@rule[-1].dest_port='443'
-uci set firewall.@rule[-1].target='DROP'
-uci set firewall.@rule[-1].family='ipv4'
+uci set firewall.@rule[-1].target='REJECT'
 
 uci add firewall rule
 uci set firewall.@rule[-1]=rule
