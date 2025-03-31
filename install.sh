@@ -21,12 +21,22 @@ chmod +x /etc/xray/update_domains.sh
 mkdir -p /usr/share/xray/
 /etc/xray/update_domains.sh
 
-if crontab -l | grep -q /etc/xray/update_domains.sh; then
-    printf "\033[32;1mCrontab already configured\033[0m\n"
+printf "\033[32;1mDownloading DNS Switch script\033[0m\n"
+curl -Lo /etc/xray/switch_dns.sh https://raw.githubusercontent.com/Davoyan/router-xray-fakeip-installation/main/switch_dns.sh
+chmod +x /etc/xray/switch_dns.sh
 
+if crontab -l | grep -q /etc/xray/update_domains.sh; then
+    printf "\033[32;1mCrontab for Update domains already configured\033[0m\n"
 else
     crontab -l | { cat; echo "17 5 * * * /etc/xray/update_domains.sh"; } | crontab -
-    printf "\033[32;1mIgnore this error. This is normal for a new installation\033[0m\n"
+    printf "\033[32;1mIgnore this errors. This is normal for a new installation\033[0m\n"
+    /etc/init.d/cron restart
+fi
+if crontab -l | grep -q /etc/xray/switch_dns.sh; then
+    printf "\033[32;1mCrontab for DNS Switch already configured\033[0m\n"
+else
+    crontab -l | { cat; echo "* * * * * /etc/xray/switch_dns.sh"; } | crontab -
+    printf "\033[32;1mIgnore this errors. This is normal for a new installation\033[0m\n"
     /etc/init.d/cron restart
 fi
 
