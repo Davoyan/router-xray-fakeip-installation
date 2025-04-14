@@ -105,7 +105,7 @@
         ],
         "ip": [
           "0.0.0.0/0",
-		      "::/0"
+	  "::/0"
         ],
         "balancerTag": "balancer-main"
       }
