@@ -27,7 +27,7 @@ sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/ma
 sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/main/install.sh)
 ```
 
-4. Редактируем конфигурационный файл по пути /etc/xray/config.json и вписываем в outbound свои данные
+4. Редактируем конфигурационный файл по пути /etc/xray/config.json и вписываем в outbound свои данные. Если при запуске скрипта было выбрано использовать vless:// ссылку, то этот пункт можно пропустить
 
 5. Перезагружаем роутер 
 
