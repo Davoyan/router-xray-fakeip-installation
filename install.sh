@@ -92,7 +92,7 @@ println "Downloading config.json"
 curl -Lo /etc/xray/config.json https://raw.githubusercontent.com/Davoyan/router-xray-fakeip-installation/main/config.json
 
 if [ use_vless_url ]; then
-    jq --argjson vless_json "$vless_json" -r '.outbounds[0].tag += "|\($vless_json.hash)"
+    jq --argjson vless_json "$vless_json" -r '.outbounds[0].tag += ""
         | .outbounds[0].settings.vnext[0].address = $vless_json.host
         | .outbounds[0].settings.vnext[0].port = ($vless_json.port | tonumber)
         | .outbounds[0].settings.vnext[0].users[0].id = $vless_json.uuid
