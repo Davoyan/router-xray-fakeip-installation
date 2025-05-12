@@ -8,7 +8,7 @@
 ---
 Если кто воспользуется полным комплектом, рекомендую в данном порядке:
 
-1. Установка ssh, sftp и отключение dropbear (не обязательно) 
+1. Установка open ssh, sftp и отключение dropbear (не обязательно) 
 ```
 sh <(wget -O - https://github.com/Davoyan/router-xray-fakeip-installation/raw/main/install-ssh-sftp-and-disable-dropbear.sh)
 ```
