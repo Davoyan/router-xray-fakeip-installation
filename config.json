@@ -85,11 +85,8 @@
     "domainStrategy": "IPOnDemand",
     "rules": [
       {
-        "ip": [
-          "1.1.1.1",
-          "1.0.0.1",
-          "9.9.9.9",
-          "149.112.112.112"
+        "inboundTag": [
+          "dns-to-direct-inbound"
         ],
         "outboundTag": "direct"
       },
@@ -100,12 +97,17 @@
         "outboundTag": "dns-out"
       },
       {
+        "port": "53",
+        "network": "udp",
+        "outboundTag": "dns-out"
+      },
+      {
         "inboundTag": [
           "all-in"
         ],
         "ip": [
           "0.0.0.0/0",
-	  "::/0"
+          "::/0"
         ],
         "balancerTag": "balancer-main"
       }
@@ -134,15 +136,19 @@
   "dns": {
     "servers": [
       {
+        "tag": "dns-to-direct-inbound",
         "address": "https://1.1.1.1/dns-query"
       },
       {
+        "tag": "dns-to-direct-inbound",
         "address": "https://1.0.0.1/dns-query"
       },
       {
+        "tag": "dns-to-direct-inbound",
         "address": "https://9.9.9.9/dns-query"
       },
       {
+        "tag": "dns-to-direct-inbound",
         "address": "https://149.112.112.112/dns-query"
       },
       {
